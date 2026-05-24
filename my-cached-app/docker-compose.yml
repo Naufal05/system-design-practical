@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  web-app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - cache-redis
+
+  cache-redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
